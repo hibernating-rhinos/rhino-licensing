@@ -17,8 +17,9 @@ namespace Rhino.Licensing
         /// </summary>
         /// <param name="publicKey">public key</param>
         /// <param name="licensePath">path to license file</param>
-        public LicenseValidator(string publicKey, string licensePath)
-            : base(publicKey)
+        /// /// <param name="enableDiscovery">Whether to enable the client discovery server to detect duplicate licenses used on the same network.</param>
+        public LicenseValidator(string publicKey, string licensePath, bool enableDiscovery = true)
+            : base(publicKey, enableDiscovery)
         {
             this.licensePath = licensePath;
         }

@@ -10,8 +10,9 @@
         /// </summary>
         /// <param name="publicKey">public key</param>
         /// <param name="license">license content</param>
-        public StringLicenseValidator(string publicKey, string license)
-            : base(publicKey)
+        /// <param name="enableDiscovery">Whether to enable the client discovery server to detect duplicate licenses used on the same network.</param>
+        public StringLicenseValidator(string publicKey, string license, bool enableDiscovery = true)
+            : base(publicKey, enableDiscovery)
         {
             License = license;
         }
