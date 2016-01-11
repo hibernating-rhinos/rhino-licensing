@@ -45,8 +45,12 @@ namespace Rhino.Licensing.Discovery
 				.ToList()
 				.ForEach(
 					address =>
-					socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership,
-					                       new MulticastOption(IPAddress.Parse(AllHostsMulticastIP), address.Address)));
+					{
+						try {
+							socket.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership,
+								new MulticastOption(IPAddress.Parse(AllHostsMulticastIP), address.Address));
+						} catch { }
+					});
 		}
 
 		private void StartListening()
